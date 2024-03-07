@@ -22,6 +22,11 @@ export class UserService {
     return this.http.post<UserResult>(this.apiUrl, userForm);
   }
 
+  update(userForm: UserForm, userId: number): Observable<UserResult> {
+    const url = `${this.apiUrl}/${userId}`;
+    return this.http.put<UserResult>(url, userForm);
+  }
+
   delete(userId: number): Observable<void> {
     const url = `${this.apiUrl}/${userId}`;
     return this.http.delete<void>(url);

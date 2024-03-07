@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-3 mb-3">
       <label for="model" class="form-label">Modelo:</label>
-      <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('model')}" class="form-control"
-        id="model" formControlName="model">
+      <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('model')}" class="form-control" id="model"
+        formControlName="model">
       <div *ngIf="carForm.controls['model'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['model'].errors?.['required']">
           Modelo é obrigatório!
@@ -12,8 +12,8 @@
     </div>
     <div class="col-md-3 mb-3">
       <label for="licensePlate" class="form-label">Placa:</label>
-      <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('licensePlate')}" class="form-control" id="licensePlate"
-        formControlName="licensePlate" mask="AAA-00000" (input)="transformToUppercase($event)">
+      <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('licensePlate')}" class="form-control"
+        id="licensePlate" formControlName="licensePlate" mask="AAA-AAAA" (input)="transformToUppercase($event)">
       <div *ngIf="carForm.controls['licensePlate'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['licensePlate'].errors?.['required']">
           Placa é obrigatório!
@@ -24,8 +24,8 @@
   <div class="row">
     <div class="col-md-2 mb-3">
       <label for="color" class="form-label">Cor:</label>
-      <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('color')}" class="form-control"
-        id="color" formControlName="color" (input)="restrictToLetters($event)">
+      <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('color')}" class="form-control" id="color"
+        formControlName="color" (input)="restrictToLetters($event)">
       <div *ngIf="carForm.controls['color'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['color'].errors?.['required']">
           Cor é obrigatório!
@@ -40,17 +40,20 @@
         <span *ngIf="carForm.controls['year'].errors?.['required']">
           Ano é obrigatório!
         </span>
+        <span *ngIf="carForm.controls['year'].errors?.['min'] || carForm.controls['year'].errors?.['max']">
+          Ano deve ser entre 1930 e {{carMaxYear()}}
+        </span>
       </div>
     </div>
   </div>
   <div *ngIf="embbed" class="row">
     <div class="col-md-6 mb-3 align-items-end d-flex justify-content-end">
       <button type="button" (click)="clear()" class="btn btn-primary me-2">Cancelar</button>
-      <button type="button" (click)="addCar()" class="btn btn-primary">Adicionar</button>
+      <button type="button" (click)="addCar()" class="btn btn-primary"><i class="bi bi-plus"></i> Adicionar</button>
     </div>
   </div>
   <div *ngIf="!embbed">
-  <button type="button" (click)="clear()" class="btn btn-outline-secondary me-1">Cancelar</button>
-  <button type="submit" class="btn btn-primary">Salvar</button>
-</div>
+    <button type="button" (click)="clear()" class="btn btn-outline-secondary me-1">Cancelar</button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </div>
 </form>

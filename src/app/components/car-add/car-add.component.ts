@@ -51,11 +51,15 @@ export class CarAddComponent implements OnInit {
 
   buildCarForm(): void {
     this.carForm = new FormGroup({
-      year: new FormControl(null, [Validators.required]),
+      year: new FormControl(null, [Validators.required, Validators.min(1930), Validators.max(this.carMaxYear())]),
       licensePlate: new FormControl(null, [Validators.required]),
       model: new FormControl(null, [Validators.required]),
       color: new FormControl(null, [Validators.required]),
     });
+  }
+
+  carMaxYear(): number {
+    return new Date().getFullYear() + 1;
   }
 
   transformToUppercase(event: any) {

@@ -7,7 +7,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 const routes: Routes = [
   {path: 'user-list', component: UserListComponent, data: { breadcrumb: 'Listagem de usuários' }},
   {path: 'user-add', component: UserAddComponent, data: { breadcrumb: 'Adicionar usuário' }},
-  {path: 'user-edit/:id', component: UserEditComponent, data: { breadcrumb: 'Editar usuário' }},
+  {path: 'user-add/:id', component: UserAddComponent, data: { breadcrumb: 'Editar usuário' }},
 ];
 
 @NgModule({

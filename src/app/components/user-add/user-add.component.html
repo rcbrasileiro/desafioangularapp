@@ -89,7 +89,7 @@
           <span>Modelo: {{ car.model }} - Ano: {{ car.year }}</span>
         </div>
         <div class="col-md-4 text-end">
-          <span class="badge bg-secondary">Placa: {{ car.licensePlate }}</span>
+          <span class="badge bg-secondary">Placa: {{ car.licensePlate | mask: 'AAA-AAAA' }}</span>
         </div>
         <div class="col-md-2 text-end">
           <button type="button" class="btn btn-sm btn-danger" (click)="removeCar(car)">
@@ -99,6 +99,9 @@
       </div>
     </li>
   </ul>
+  <div class="row">
+    <div class="col-md-2 mb-3"></div>
+  </div>
   <button type="button" (click)="limpar()" class="btn btn-outline-secondary me-1">Cancelar</button>
-  <button type="submit" class="btn btn-primary">Salvar</button>
+  <button type="submit" class="btn btn-primary">{{saveOrEdit()}}</button>
 </form>
