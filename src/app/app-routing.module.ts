@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { UserAddComponent } from './components/user-add/user-add.component';
-import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 const routes: Routes = [
   {path: 'user-list', component: UserListComponent, data: { breadcrumb: 'Listagem de usuários' }},
-  {path: 'user-add', component: UserAddComponent, data: { breadcrumb: 'Adicionar usuário' }},
-  {path: 'user-add/:id', component: UserAddComponent, data: { breadcrumb: 'Editar usuário' }},
+  {path: 'user-form', component: UserFormComponent, data: { breadcrumb: 'Adicionar usuário' }},
+  {path: 'user-form/:id', component: UserFormComponent, data: { breadcrumb: 'Editar usuário' }},
 ];
 
 @NgModule({

@@ -8,11 +8,11 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-user-add',
-  templateUrl: './user-add.component.html',
-  styleUrls: ['./user-add.component.css']
+  selector: 'app-user-form',
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.css']
 })
-export class UserAddComponent implements OnInit {
+export class UserFormComponent implements OnInit {
 
   @Input() userResult: UserResult = null;
 
@@ -54,7 +54,7 @@ export class UserAddComponent implements OnInit {
       formData.cars = this.cars;
 
       debugger;
-      if(this.isEditable()) {
+      if (this.isEditable()) {
         this.userService.update(formData, this.userResult.id).subscribe({
           next: (response) => {
             this.router.navigate(['/user-list']);
@@ -82,7 +82,7 @@ export class UserAddComponent implements OnInit {
   findById(): void {
     const userId = this.route.snapshot.paramMap.get('id');
 
-    if(userId == null) {
+    if (userId == null) {
       return;
     }
 

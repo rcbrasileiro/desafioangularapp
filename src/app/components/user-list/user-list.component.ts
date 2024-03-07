@@ -26,11 +26,11 @@ export class UserListComponent implements OnInit {
   }
 
   addUser(): void {
-    this.router.navigate(['/user-add']);
+    this.router.navigate(['/user-form']);
   }
 
   editUser(id: number): void {
-    this.router.navigate(['/user-add', id]);
+    this.router.navigate(['/user-form', id]);
   }
 
   deleteUser(userId: number): void {
