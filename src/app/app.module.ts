@@ -11,6 +11,7 @@ import { BreadcrumbComponent } from './home/breadcrumb/breadcrumb.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { CarFormComponent } from './components/car-form/car-form.component';
+import { CarListComponent } from './components/car-list/car-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CarFormComponent } from './components/car-form/car-form.component';
     UserListComponent,
     UserFormComponent,
     CarFormComponent,
+    CarListComponent,
   ],
   imports: [
     BrowserModule,

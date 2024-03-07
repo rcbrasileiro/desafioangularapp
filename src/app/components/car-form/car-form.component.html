@@ -35,7 +35,7 @@
     <div class="col-md-2 mb-3">
       <label for="year" class="form-label">Ano:</label>
       <input type="number" [ngClass]="{'is-invalid': isInvalidAndTouched('year')}" class="form-control" id="year"
-        formControlName="year">
+        formControlName="year" maxlength="4">
       <div *ngIf="carForm.controls['year'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['year'].errors?.['required']">
           Ano é obrigatório!
