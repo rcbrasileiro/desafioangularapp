@@ -9,8 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BreadcrumbComponent } from './home/breadcrumb/breadcrumb.component';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { CarAddComponent } from './components/car-add/car-add.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { CarFormComponent } from './components/car-form/car-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     BreadcrumbComponent,
     UserListComponent,
     UserFormComponent,
-    CarAddComponent,
+    CarFormComponent,
   ],
   imports: [
     BrowserModule,

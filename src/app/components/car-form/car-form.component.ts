@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-car-add',
-  templateUrl: './car-add.component.html',
-  styleUrls: ['./car-add.component.css']
+  selector: 'app-car-form',
+  templateUrl: './car-form.component.html',
+  styleUrls: ['./car-form.component.css']
 })
-export class CarAddComponent implements OnInit {
+export class CarFormComponent implements OnInit {
 
   @Output() carAdded: EventEmitter<any> = new EventEmitter();
 
