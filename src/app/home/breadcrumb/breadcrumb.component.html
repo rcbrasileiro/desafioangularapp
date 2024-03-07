@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-chevron py-1 rounded-3">
+    <li class="breadcrumb-item">
+      <a class="link-body-emphasis" href="/">
+        <svg class="bi" width="16" height="16">
+          <use xlink:href="#house-fill"></use>
+        </svg>
+        <span class="visually-hidden">Home</span>
+      </a>
+    </li>
+    <li *ngFor="let breadcrumb of (breadcrumbs$ | async)" class="breadcrumb-item">
+      <a class="link-body-emphasis fw-semibold text-decoration-none" [href]="breadcrumb.url">{{ breadcrumb.label }}</a>
+    </li>
+  </ol>
+</nav>
