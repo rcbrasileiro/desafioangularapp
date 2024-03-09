@@ -1,6 +1,7 @@
+<ng-container *ngIf="currentRoute !== 'forbidden' && currentRoute !== 'login'">
 <header class="navbar sticky-top flex-md-nowrap p-2 text-dark">
   <div class="d-flex flex-column texto-cabecario">
-    <p class="fs-2 mb-0 fw-bold" >Desafio Java/Angular para gestão de usuários</p>
+    <p class="fs-2 mb-0 fw-bold" >Desafio Java/Angular</p>
   </div>
 
   <ul class="navbar-nav flex-row d-md-none">
@@ -41,9 +42,11 @@
           </ul>
           <hr class="my-3" />
           <ul class="nav flex-column w-100 mb-auto d-flex align-items-start">
-            <li class="nav-item">
+            <li *ngIf="userMe" class="nav-item">
               <div class="nav-link d-flex flex-column align-items-start user-info">
-                <b class="mb-0">Usuário: {{ userAuth.login }}</b>
+                <b class="mb-0">Usuário: {{ userMe.login }}</b>
+                <b class="mb-0">Nome: {{ userMe.firstName }} {{ userMe.lastName }}</b>
+                <b class="mb-0">Último login: {{ userMe.lastLogin | date:'dd/MM/yyyy HH:mm:ss' }}</b>
               </div>
             </li>
             <li class="nav-item">
@@ -68,3 +71,10 @@
 
   <p class="nav col-md-4 justify-content-end"></p>
 </footer>
+</ng-container>
+<ng-container *ngIf="currentRoute == 'forbidden'">
+<app-forbidden></app-forbidden>
+</ng-container>
+<ng-container *ngIf="currentRoute == 'login'">
+<app-login></app-login>
+</ng-container>

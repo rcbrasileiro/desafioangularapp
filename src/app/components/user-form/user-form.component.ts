@@ -53,7 +53,6 @@ export class UserFormComponent implements OnInit {
 
       formData.cars = this.cars;
 
-      debugger;
       if (this.isEditable()) {
         this.userService.update(formData, this.userResult.id).subscribe({
           next: (response) => {
@@ -70,7 +69,9 @@ export class UserFormComponent implements OnInit {
           next: (response) => {
             this.router.navigate(['/user-list']);
           },
-          error: (error) => this.errorHandle(error),
+          error: (error) => {
+            this.errorHandle(error)
+          },
           complete: () => {
             this.notificationService.showSuccess('Usuário adicionado!', 'Sucesso');
           },
@@ -106,7 +107,6 @@ export class UserFormComponent implements OnInit {
   }
 
   errorHandle(error: any): void {
-    debugger;
     switch (error.status) {
       case 400:
       case 422:

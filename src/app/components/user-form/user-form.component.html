@@ -30,6 +30,9 @@
         <span *ngIf="userForm.controls['email'].errors?.['required']">
           Email é obrigatório!
         </span>
+        <span *ngIf="userForm.controls['email'].errors?.['email']">
+          Email com formato inválido!
+        </span>
       </div>
     </div>
     <div class="col-md-2 mb-3">
