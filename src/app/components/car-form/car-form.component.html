@@ -54,6 +54,6 @@
   </div>
   <div *ngIf="!embbed">
     <button type="button" (click)="clear()" class="btn btn-outline-secondary me-1">Cancelar</button>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button type="submit" class="btn btn-primary">{{saveOrEdit()}}</button>
   </div>
 </form>

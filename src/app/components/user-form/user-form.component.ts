@@ -54,30 +54,37 @@ export class UserFormComponent implements OnInit {
       formData.cars = this.cars;
 
       if (this.isEditable()) {
-        this.userService.update(formData, this.userResult.id).subscribe({
-          next: (response) => {
-            this.router.navigate(['/user-list']);
-          },
-          error: (error) => this.errorHandle(error),
-          complete: () => {
-            this.notificationService.showSuccess('Usuário atualizado!', 'Sucesso');
-          },
-        })
-
+        this.update(formData);
       } else {
-        this.userService.save(formData).subscribe({
-          next: (response) => {
-            this.router.navigate(['/user-list']);
-          },
-          error: (error) => {
-            this.errorHandle(error)
-          },
-          complete: () => {
-            this.notificationService.showSuccess('Usuário adicionado!', 'Sucesso');
-          },
-        });
+        this.save(formData);
       }
     }
+  }
+
+  private save(formData: UserForm) {
+    this.userService.save(formData).subscribe({
+      next: (response) => {
+        this.router.navigate(['/user-list']);
+      },
+      error: (error) => {
+        this.errorHandle(error);
+      },
+      complete: () => {
+        this.notificationService.showSuccess('Usuário adicionado!', 'Sucesso');
+      },
+    });
+  }
+
+  private update(formData: UserForm) {
+    this.userService.update(formData, this.userResult.id).subscribe({
+      next: (response) => {
+        this.router.navigate(['/user-list']);
+      },
+      error: (error) => this.errorHandle(error),
+      complete: () => {
+        this.notificationService.showSuccess('Usuário atualizado!', 'Sucesso');
+      },
+    });
   }
 
   findById(): void {
