@@ -1,87 +1,87 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col-md-3 mb-3">
-      <label for="firstName" class="form-label">Nome:</label>
+      <label for="firstName" class="form-label">{{ 'user.firstName' | translate }}:</label>
       <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('firstName')}" class="form-control"
         id="firstName" formControlName="firstName">
       <div *ngIf="userForm.controls['firstName'].invalid" class="invalid-feedback">
         <span *ngIf="userForm.controls['firstName'].errors?.['required']">
-          Nome é obrigatório!
+          {{ 'user.firstNameRequired' | translate }}
         </span>
       </div>
     </div>
     <div class="col-md-3 mb-3">
-      <label for="lastName" class="form-label">Sobrenome:</label>
+      <label for="lastName" class="form-label">{{ 'user.lastName' | translate }}:</label>
       <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('lastName')}" class="form-control" id="lastName"
         formControlName="lastName">
       <div *ngIf="userForm.controls['lastName'].invalid" class="invalid-feedback">
         <span *ngIf="userForm.controls['lastName'].errors?.['required']">
-          Sobrenome é obrigatório!
+          {{ 'user.lastNameRequired' | translate }}
         </span>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-3 mb-3">
-      <label for="email" class="form-label">Email:</label>
+      <label for="email" class="form-label">{{ 'user.email' | translate }}:</label>
       <input type="email" [ngClass]="{'is-invalid': isInvalidAndTouched('email')}" class="form-control" id="email"
         formControlName="email">
       <div *ngIf="userForm.controls['email'].invalid" class="invalid-feedback">
         <span *ngIf="userForm.controls['email'].errors?.['required']">
-          Email é obrigatório!
+          {{ 'user.emailRequired' | translate }}
         </span>
         <span *ngIf="userForm.controls['email'].errors?.['email']">
-          Email com formato inválido!
+          {{ 'user.emailInvalidFormat' | translate }}
         </span>
       </div>
     </div>
     <div class="col-md-2 mb-3">
-      <label for="birthday" class="form-label">Data de Nascimento:</label>
+      <label for="birthday" class="form-label">{{ 'user.birthday' | translate }}:</label>
       <input type="date" [ngClass]="{'is-invalid': isInvalidAndTouched('birthday')}" class="form-control" id="birthday"
         formControlName="birthday">
       <div *ngIf="userForm.controls['birthday'].invalid" class="invalid-feedback">
         <span *ngIf="userForm.controls['birthday'].errors?.['required']">
-          Data de Nascimento é obrigatório!
+          {{ 'user.birthdayRequired' | translate }}
         </span>
         <span *ngIf="userForm.controls['birthday'].errors?.['birthdayInvalid']">
-          Data de Nascimento não pode ser maior que a data atual!
+          {{ 'user.birthdayInvalid' | translate }}
         </span>
       </div>
     </div>
     <div class="col-md-2 mb-3">
-      <label for="phone" [ngClass]="{'is-invalid': isInvalidAndTouched('phone')}" class="form-label">Telefone:</label>
+      <label for="phone" [ngClass]="{'is-invalid': isInvalidAndTouched('phone')}" class="form-label">{{ 'user.phone' | translate }}:</label>
       <input type="text" class="form-control" id="phone" formControlName="phone" mask="(00) 00000-0000">
       <div *ngIf="userForm.controls['phone'].invalid" class="invalid-feedback">
         <span *ngIf="userForm.controls['phone'].errors?.['required']">
-          Telefone é obrigatório!
+          {{ 'user.phoneRequired' | translate }}
         </span>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-3 mb-3">
-      <label for="login" [ngClass]="{'is-invalid': isInvalidAndTouched('login')}" class="form-label">Login:</label>
+      <label for="login" [ngClass]="{'is-invalid': isInvalidAndTouched('login')}" class="form-label">{{ 'user.login' | translate }}:</label>
       <input type="text" class="form-control" id="login" formControlName="login">
       <div *ngIf="userForm.controls['login'].invalid" class="invalid-feedback">
         <span *ngIf="userForm.controls['login'].errors?.['required']">
-          Login é obrigatório!
+          {{ 'user.loginRequired' | translate }}
         </span>
       </div>
     </div>
     <div class="col-md-2 mb-3">
       <label for="password" [ngClass]="{'is-invalid': isInvalidAndTouched('password')}"
-        class="form-label">Senha:</label>
+        class="form-label">{{ 'user.password' | translate }}:</label>
       <input type="password" class="form-control" id="password" formControlName="password">
       <div *ngIf="userForm.controls['password'].invalid" class="invalid-feedback">
         <span *ngIf="userForm.controls['password'].errors?.['required']">
-          Senha é obrigatório!
+          {{ 'user.passwordRequired' | translate }}
         </span>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h5>Carros</h5>
+      <h5>{{ 'user.cars' | translate }}</h5>
       <app-car-form (carAdded)="handleCarAdded($event)" [embbed]="true"></app-car-form>
     </div>
   </div>
@@ -105,6 +105,6 @@
   <div class="row">
     <div class="col-md-2 mb-3"></div>
   </div>
-  <button type="button" (click)="limpar()" class="btn btn-outline-secondary me-1">Cancelar</button>
+  <button type="button" (click)="limpar()" class="btn btn-outline-secondary me-1">{{ 'common.cancel' | translate }}</button>
   <button type="submit" class="btn btn-primary">{{saveOrEdit()}}</button>
 </form>

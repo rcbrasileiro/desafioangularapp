@@ -1,59 +1,59 @@
 <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col-md-3 mb-3">
-      <label for="model" class="form-label">Modelo:</label>
+      <label for="model" class="form-label">{{ 'car.model' | translate }}:</label>
       <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('model')}" class="form-control" id="model"
         formControlName="model">
       <div *ngIf="carForm.controls['model'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['model'].errors?.['required']">
-          Modelo é obrigatório!
+          {{ 'car.modelRequired' | translate }}
         </span>
       </div>
     </div>
     <div class="col-md-3 mb-3">
-      <label for="licensePlate" class="form-label">Placa:</label>
+      <label for="licensePlate" class="form-label">{{ 'car.licensePlateRequired' | translate }}:</label>
       <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('licensePlate')}" class="form-control"
         id="licensePlate" formControlName="licensePlate" mask="AAA-AAAA" (input)="transformToUppercase($event)">
       <div *ngIf="carForm.controls['licensePlate'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['licensePlate'].errors?.['required']">
-          Placa é obrigatório!
+          {{ 'car.licensePlate' | translate }}
         </span>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-2 mb-3">
-      <label for="color" class="form-label">Cor:</label>
+      <label for="color" class="form-label">{{ 'car.color' | translate }}:</label>
       <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('color')}" class="form-control" id="color"
         formControlName="color" (input)="restrictToLetters($event)">
       <div *ngIf="carForm.controls['color'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['color'].errors?.['required']">
-          Cor é obrigatório!
+          {{ 'car.colorRequired' | translate }}
         </span>
       </div>
     </div>
     <div class="col-md-2 mb-3">
-      <label for="year" class="form-label">Ano:</label>
+      <label for="year" class="form-label">{{ 'car.year' | translate }}:</label>
       <input type="number" [ngClass]="{'is-invalid': isInvalidAndTouched('year')}" class="form-control" id="year"
         formControlName="year" maxlength="4">
       <div *ngIf="carForm.controls['year'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['year'].errors?.['required']">
-          Ano é obrigatório!
+          {{ 'car.yearRequired' | translate }}
         </span>
         <span *ngIf="carForm.controls['year'].errors?.['min'] || carForm.controls['year'].errors?.['max']">
-          Ano deve ser entre 1930 e {{carMaxYear()}}
+          {{ 'car.yearRange' | translate:{ maxYear: maxYear } }}
         </span>
       </div>
     </div>
   </div>
   <div *ngIf="embbed" class="row">
     <div class="col-md-6 mb-3 align-items-end d-flex justify-content-end">
-      <button type="button" (click)="clear()" class="btn btn-primary me-2">Cancelar</button>
-      <button type="button" (click)="addCar()" class="btn btn-primary"><i class="bi bi-plus"></i> Adicionar</button>
+      <button type="button" (click)="clear()" class="btn btn-primary me-2">{{ 'common.cancel' | translate }}</button>
+      <button type="button" (click)="addCar()" class="btn btn-primary"><i class="bi bi-plus"></i> {{ 'common.add' | translate }}</button>
     </div>
   </div>
   <div *ngIf="!embbed">
-    <button type="button" (click)="clear()" class="btn btn-outline-secondary me-1">Cancelar</button>
+    <button type="button" (click)="clear()" class="btn btn-outline-secondary me-1">{{ 'common.cancel' | translate }}</button>
     <button type="submit" class="btn btn-primary">{{saveOrEdit()}}</button>
   </div>
 </form>

@@ -3,11 +3,11 @@
     <div class="col-md-10">
       <div class="card shadow">
         <div class="card-body text-center">
-          <h2 class="card-title fw-bold text-danger">Acesso Negado</h2>
-          <p class="card-text fs-5">Desculpe, você não tem permissão para acessar esta página.</p>
+          <h2 class="card-title fw-bold text-danger">{{ 'forbidden.title' | translate }}</h2>
+          <p class="card-text fs-5">{{ 'forbidden.message' | translate }}</p>
           <div class="d-grid gap-2">
-            <a [routerLink]="['/home']" class="btn btn-primary">Voltar à Página Inicial</a>
-            <a [routerLink]="['/login']" class="btn btn-outline-secondary">Ir para a Página de Login</a>
+            <a [routerLink]="['/home']" class="btn btn-primary">{{ 'forbidden.backToHome' | translate }}</a>
+            <a [routerLink]="['/login']" class="btn btn-outline-secondary">{{ 'forbidden.goToLogin' | translate }}</a>
           </div>
         </div>
       </div>

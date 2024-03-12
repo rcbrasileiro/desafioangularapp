@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { CarResult } from 'src/app/interfaces/car-result';
 import { CarService } from 'src/app/services/car.service';
 import { NotificationService } from 'src/app/services/notification.service';
@@ -13,7 +14,7 @@ export class CarListComponent implements OnInit {
 
   cars: CarResult[] = [];
 
-  constructor(private carService: CarService, private notificationService: NotificationService, private router: Router) { }
+  constructor(private carService: CarService, private notificationService: NotificationService, private router: Router, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.getCars();
@@ -37,10 +38,10 @@ export class CarListComponent implements OnInit {
     this.carService.delete(userId).subscribe({
       next: () => {
         this.getCars();
-        this.notificationService.showSuccess('Carro excluído!', 'Sucesso');
+        this.notificationService.showSuccess(this.translate.instant('car.deleted'), this.translate.instant('common.success'));
       },
       error: (error) => {
-        this.notificationService.showError(error.error.message, 'Erro');
+        this.notificationService.showError(error.error.message, this.translate.instant('common.error'));
       }
     });
   }

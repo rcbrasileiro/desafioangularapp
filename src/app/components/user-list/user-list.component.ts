@@ -3,6 +3,7 @@ import { UserResult } from 'src/app/interfaces/user-result';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-list',
@@ -13,7 +14,7 @@ export class UserListComponent implements OnInit {
 
   users: UserResult[] = [];
 
-  constructor(private userService: UserService, private notificationService: NotificationService, private router: Router) { }
+  constructor(private userService: UserService, private notificationService: NotificationService, private router: Router, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -37,10 +38,10 @@ export class UserListComponent implements OnInit {
     this.userService.delete(userId).subscribe({
       next: () => {
         this.getUsers();
-        this.notificationService.showSuccess('Usuário excluído!', 'Sucesso');
+        this.notificationService.showSuccess(this.translate.instant('user.deleted'), this.translate.instant('common.success'));
       },
       error: (error) => {
-        this.notificationService.showError(error.error.message, 'Erro');
+        this.notificationService.showError(error.error.message, this.translate.instant('common.erro'));
       }
     });
   }

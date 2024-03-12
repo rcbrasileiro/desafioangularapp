@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthRequest } from '../../interfaces/auth-request';
 import { NotificationService } from 'src/app/services/notification.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   authRequestForm: FormGroup
 
-  constructor(private authService: AuthService, private notificationService: NotificationService, private router: Router) { }
+  constructor(private authService: AuthService, private notificationService: NotificationService, private router: Router, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.buildAuthRequest();
@@ -30,9 +31,9 @@ export class LoginComponent implements OnInit {
         },
         error: (error) => {
           if (error.status === 401) {
-            this.notificationService.showError("Login ou senha inválidos", 'Autenticação');
+            this.notificationService.showError(this.translate.instant('login.invalidCredentials'), this.translate.instant('login.authentication'));
           } else {
-            this.notificationService.showError("Ocorreu um erro ao realizar login", 'Erro');
+            this.notificationService.showError(this.translate.instant('login.loginError'), this.translate.instant('common.erro'));
           }
         }
       });

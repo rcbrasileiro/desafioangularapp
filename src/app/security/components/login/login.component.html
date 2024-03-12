@@ -2,30 +2,30 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
-        <div class="card-header">Login</div>
+        <div class="card-header">{{ 'login.title' | translate }}</div>
         <div class="card-body">
           <form [formGroup]="authRequestForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-              <label for="login" class="form-label">Login</label>
+              <label for="login" class="form-label">{{ 'login.loginLabel' | translate }}</label>
               <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('login')}" class="form-control"
                 id="login" formControlName="login">
               <div *ngIf="authRequestForm.controls['login'].invalid" class="invalid-feedback">
                 <span *ngIf="authRequestForm.controls['login'].errors?.['required']">
-                  Login é obrigatório!
+                  {{ 'login.loginRequired' | translate }}
                 </span>
               </div>
             </div>
             <div class="mb-3">
-              <label for="password" class="form-label">Senha</label>
+              <label for="password" class="form-label">{{ 'login.passwordLabel' | translate }}</label>
               <input type="password" [ngClass]="{'is-invalid': isInvalidAndTouched('password')}" class="form-control"
                 id="password" formControlName="password">
               <div *ngIf="authRequestForm.controls['password'].invalid" class="invalid-feedback">
                 <span *ngIf="authRequestForm.controls['password'].errors?.['required']">
-                  Senha é obrigatório!
+                  {{ 'login.passwordRequired' | translate }}
                 </span>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">{{ 'login.submitButton' | translate }}</button>
           </form>
         </div>
       </div>

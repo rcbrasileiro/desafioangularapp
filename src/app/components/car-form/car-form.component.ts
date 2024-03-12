@@ -2,6 +2,7 @@ import { CarService } from './../../services/car.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { debounce } from 'rxjs';
 import { CarForm } from 'src/app/interfaces/car-form';
 import { CarResult } from 'src/app/interfaces/car-result';
@@ -22,11 +23,14 @@ export class CarFormComponent implements OnInit {
 
   carForm: FormGroup;
 
-  constructor(private carService: CarService, private notificationService: NotificationService, private router: Router, private route: ActivatedRoute) { }
+  maxYear: number;
+
+  constructor(private carService: CarService, private notificationService: NotificationService, private router: Router, private route: ActivatedRoute, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.findById();
     this.buildCarForm();
+    this.maxYear = this.carMaxYear();
   }
 
   onSubmit(): void {
@@ -47,7 +51,7 @@ export class CarFormComponent implements OnInit {
     this.carService.save(formData).subscribe({
       next: (response) => {
         this.router.navigate(['/car-list']);
-        this.notificationService.showSuccess('Carro adicionado!', 'Sucesso');
+        this.notificationService.showSuccess(this.translate.instant('car.added'), this.translate.instant('common.success'));
       },
       error: (error) => {
         this.errorHandle(error);
@@ -59,7 +63,7 @@ export class CarFormComponent implements OnInit {
     this.carService.update(formData, this.carResult.id).subscribe({
       next: (response) => {
         this.router.navigate(['/car-list']);
-        this.notificationService.showSuccess('Carro atualizado!', 'Sucesso');
+        this.notificationService.showSuccess(this.translate.instant('common.updated'), this.translate.instant('common.success'));
       },
       error: (error) => this.errorHandle(error),
     });
@@ -83,7 +87,7 @@ export class CarFormComponent implements OnInit {
         error: (error) => this.errorHandle(error)
       });
     } else {
-      this.notificationService.showError('Id inválido', 'Erro');
+      this.notificationService.showError(this.translate.instant('common.invalidId'), this.translate.instant('common.error'));
       this.router.navigate(['/car-list']);
     }
   }
@@ -93,16 +97,16 @@ export class CarFormComponent implements OnInit {
       case 400:
       case 422:
       case 409: {
-        this.notificationService.showWarning(error.error.message, 'Aviso');
+        this.notificationService.showWarning(error.error.message, this.translate.instant('common.warning'));
         break;
       }
       case 404: {
-        this.notificationService.showInfo('Carro não encontrado', 'Aviso');
+        this.notificationService.showInfo(this.translate.instant('car.notFound'), this.translate.instant('common.warning'));
         this.router.navigate(['/car-list']);
         break;
       }
       default:
-        this.notificationService.showError('Ocorreu um erro inesperado!', 'Erro');
+        this.notificationService.showError(this.translate.instant('common.unexpectedError'), this.translate.instant('common.error'));
     }
   }
 
@@ -148,7 +152,7 @@ export class CarFormComponent implements OnInit {
   }
 
   saveOrEdit(): string {
-    return this.carResult ? 'Editar' : 'Salvar';
+    return this.carResult ? this.translate.instant('common.edit') : this.translate.instant('common.save');
   }
 
   isEditable(): boolean {

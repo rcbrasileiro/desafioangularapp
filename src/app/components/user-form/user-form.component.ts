@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { CarForm } from 'src/app/interfaces/car-form';
 import { UserForm } from 'src/app/interfaces/user-form';
 import { UserResult } from 'src/app/interfaces/user-result';
@@ -20,7 +21,7 @@ export class UserFormComponent implements OnInit {
 
   cars: CarForm[] = [];
 
-  constructor(private userService: UserService, private notificationService: NotificationService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private notificationService: NotificationService, private router: Router, private route: ActivatedRoute, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.findById();
@@ -70,7 +71,7 @@ export class UserFormComponent implements OnInit {
         this.errorHandle(error);
       },
       complete: () => {
-        this.notificationService.showSuccess('Usuário adicionado!', 'Sucesso');
+        this.notificationService.showSuccess(this.translate.instant('user.added'), this.translate.instant('common.success'));
       },
     });
   }
@@ -82,7 +83,7 @@ export class UserFormComponent implements OnInit {
       },
       error: (error) => this.errorHandle(error),
       complete: () => {
-        this.notificationService.showSuccess('Usuário atualizado!', 'Sucesso');
+        this.notificationService.showSuccess(this.translate.instant('user.updated'), this.translate.instant('common.success'));
       },
     });
   }
@@ -104,7 +105,7 @@ export class UserFormComponent implements OnInit {
         error: (error) => this.errorHandle(error)
       });
     } else {
-      this.notificationService.showError('Id inválido', 'Erro');
+      this.notificationService.showError(this.translate.instant('common.invalidId'), this.translate.instant('common.error'));
       this.router.navigate(['/user-list']);
     }
   }
@@ -118,16 +119,16 @@ export class UserFormComponent implements OnInit {
       case 400:
       case 422:
       case 409: {
-        this.notificationService.showWarning(error.error.message, 'Aviso');
+        this.notificationService.showWarning(error.error.message, this.translate.instant('common.warning'));
         break;
       }
       case 404: {
-        this.notificationService.showInfo('Usuário não encontrado', 'Aviso');
+        this.notificationService.showInfo('Usuário não encontrado', this.translate.instant('common.warning'));
         this.router.navigate(['/user-list']);
         break;
       }
       default:
-        this.notificationService.showError('Ocorreu um erro inesperado!', 'Erro');
+        this.notificationService.showError(this.translate.instant('common.unexpectedError'), this.translate.instant('common.error'));
     }
   }
 
@@ -143,7 +144,7 @@ export class UserFormComponent implements OnInit {
   handleCarAdded(newCar: CarForm): void {
     const isDuplicate = this.cars.some(car => car.licensePlate === newCar.licensePlate);
     if (isDuplicate) {
-      this.notificationService.showError('A placa já foi adicionada', 'Error');
+      this.notificationService.showError(this.translate.instant('user.licensePlateAlradyAdded'), this.translate.instant('common.error'));
     } else {
       this.cars.push(newCar);
     }
@@ -165,7 +166,7 @@ export class UserFormComponent implements OnInit {
   }
 
   saveOrEdit(): string {
-    return this.userResult ? 'Editar' : 'Salvar';
+    return this.userResult ? this.translate.instant('common.edit') : this.translate.instant('common.save');
   }
 
   isEditable(): boolean {

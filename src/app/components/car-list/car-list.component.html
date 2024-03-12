@@ -1,16 +1,16 @@
 <div class="d-flex justify-content-end mb-3">
   <button class="btn btn-primary" (click)="addCar()">
-    <i class="bi bi-plus"></i> Adicionar
+    <i class="bi bi-plus"></i>{{ 'common.add' | translate }}
   </button>
 </div>
 <table class="table table-striped table-responsive">
   <thead class="table-light">
     <tr>
-      <th scope="col">Modelo</th>
-      <th scope="col">Placa</th>
-      <th scope="col">Cor</th>
-      <th scope="col">Ano</th>
-      <th class="text-center" scope="col">Ações</th>
+      <th scope="col">{{ 'car.model' | translate }}</th>
+      <th scope="col">{{ 'car.licensePlate' | translate }}</th>
+      <th scope="col">{{ 'car.color' | translate }}</th>
+      <th scope="col">{{ 'car.year' | translate }}</th>
+      <th class="text-center" scope="col">{{ 'common.actions' | translate }}</th>
     </tr>
   </thead>
   <tbody>

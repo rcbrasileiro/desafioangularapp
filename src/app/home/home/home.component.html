@@ -3,40 +3,34 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title">Bem-vindo ao Sistema de Gestão de Pessoas</h1>
-          <h3 class="mt-4">Funcionalidades:</h3>
+          <h1 class="card-title">{{ 'home.welcomeMessage' | translate }}</h1>
+          <h3 class="mt-4">{{ 'home.features' | translate }}</h3>
           <ul class="list-group mt-3">
             <li class="list-group-item">
-              <strong>Gestão de usuários:</strong>
+              <strong>{{ 'home.userManagement.title' | translate }}</strong>
               <ul class="list-group mt-2">
-                <li class="list-group-item">Adicionar.</li>
-                <li class="list-group-item">Editar.</li>
-                <li class="list-group-item">Ao adicionar ou editar um usuário, é possível adicionar ou remover um ou mais
-                  carros.</li>
-                <li class="list-group-item">Remover.</li>
-                <li class="list-group-item">listar.</li>
+                <li class="list-group-item">{{ 'home.userManagement.add' | translate }}</li>
+                <li class="list-group-item">{{ 'home.userManagement.edit' | translate }}</li>
+                <li class="list-group-item">{{ 'home.userManagement.addOrRemoveCars' | translate }}</li>
+                <li class="list-group-item">{{ 'home.userManagement.remove' | translate }}</li>
+                <li class="list-group-item">{{ 'home.userManagement.list' | translate }}</li>
               </ul>
             </li>
             <li class="list-group-item">
-              <strong>Gestão de carros:</strong>
+              <strong>{{ 'home.carManagement.title' | translate }}</strong>
               <ul class="list-group mt-2">
-                <li class="list-group-item">Adicionar.</li>
-                <li class="list-group-item">Editar.</li>
-                <li class="list-group-item">Remover.</li>
-                <li class="list-group-item">Remover.</li>
+                <li class="list-group-item">{{ 'home.carManagement.add' | translate }}</li>
+                <li class="list-group-item">{{ 'home.carManagement.edit' | translate }}</li>
+                <li class="list-group-item">{{ 'home.carManagement.remove' | translate }}</li>
               </ul>
             </li>
             <li class="list-group-item">
-              <strong>Login:</strong>
+              <strong>{{ 'home.login.title' | translate }}</strong>
               <ul class="list-group mt-2">
-                <li class="list-group-item">A gestão de usuários é disponível para qualquer usuário, mesmo sem acesso.
-                </li>
-                <li class="list-group-item">Para acessar a gestão de carros, é necessário realizar o login no sistema.
-                </li>
-                <li class="list-group-item">Ao executar o login, as informações do usuário ficam disponíves abaixo do
-                  menu.</li>
-                <li class="list-group-item">A implementação do login foi realizada usando o store do Angular. Também
-                  poderíamos adicionar no localStorage ou cookies para permitir refresh sem perder o token.</li>
+                <li class="list-group-item">{{ 'home.login.userManagementAccess' | translate }}</li>
+                <li class="list-group-item">{{ 'home.login.carManagementAccess' | translate }}</li>
+                <li class="list-group-item">{{ 'home.login.userInfoDisplay' | translate }}</li>
+                <li class="list-group-item">{{ 'home.login.loginImplementation' | translate }}</li>
               </ul>
             </li>
           </ul>
