@@ -11,12 +11,12 @@
       </div>
     </div>
     <div class="col-md-3 mb-3">
-      <label for="licensePlate" class="form-label">{{ 'car.licensePlateRequired' | translate }}:</label>
+      <label for="licensePlate" class="form-label">{{ 'car.licensePlate' | translate }}:</label>
       <input type="text" [ngClass]="{'is-invalid': isInvalidAndTouched('licensePlate')}" class="form-control"
         id="licensePlate" formControlName="licensePlate" mask="AAA-AAAA" (input)="transformToUppercase($event)">
       <div *ngIf="carForm.controls['licensePlate'].invalid" class="invalid-feedback">
         <span *ngIf="carForm.controls['licensePlate'].errors?.['required']">
-          {{ 'car.licensePlate' | translate }}
+          {{ 'car.licensePlateRequired' | translate }}
         </span>
       </div>
     </div>
