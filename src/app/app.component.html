@@ -1,7 +1,7 @@
 <ng-container *ngIf="currentRoute !== 'forbidden' && currentRoute !== 'login'">
 <header class="navbar sticky-top flex-md-nowrap p-2 text-dark">
   <div class="d-flex flex-column texto-cabecario">
-    <p class="fs-2 mb-0 fw-bold" >Desafio Java/Angular</p>
+    <p class="fs-2 mb-0 fw-bold" >{{ 'app.angularQuest' | translate }}</p>
   </div>
 
   <ul class="navbar-nav flex-row d-md-none">
@@ -30,13 +30,13 @@
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" routerLink="/user-list" routerLinkActive="active" ariaCurrentWhenActive="page">
                 <i class="bi bi-people"></i>
-                Usuário
+                {{ 'app.user' | translate }}
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" routerLink="/car-list" routerLinkActive="active" ariaCurrentWhenActive="page">
                 <i class="bi bi-ev-front"></i>
-                Carro
+                {{ 'app.car' | translate }}
               </a>
             </li>
           </ul>
@@ -44,21 +44,21 @@
           <ul class="nav flex-column w-100 mb-auto d-flex align-items-start">
             <li *ngIf="userMe" class="nav-item">
               <div class="nav-link d-flex flex-column align-items-start user-info">
-                <b class="mb-0">Usuário: {{ userMe.login }}</b>
-                <b class="mb-0">Nome: {{ userMe.firstName }} {{ userMe.lastName }}</b>
-                <b class="mb-0">Último login: {{ userMe.lastLogin | date:'dd/MM/yyyy HH:mm:ss' }}</b>
+                <b class="mb-0">{{ 'app.user' | translate }}: {{ userMe.login }}</b>
+                <b class="mb-0">{{ 'app.name' | translate }}: {{ userMe.firstName }} {{ userMe.lastName }}</b>
+                <b class="mb-0">{{ 'app.lastLogin' | translate }}: {{ userMe.lastLogin | date:'dd/MM/yyyy HH:mm:ss' }}</b>
               </div>
             </li>
             <li *ngIf="userMe" class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#" (click)="logout()">
                 <i class="bi bi-door-closed"></i>
-                Sair
+                {{ 'app.exit' | translate }}
               </a>
             </li>
             <li *ngIf="!userMe" class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" routerLink="/login"  routerLinkActive="active" ariaCurrentWhenActive="page">
                 <i class="bi bi-door-closed"></i>
-                Login
+                {{ 'app.login' | translate }}
               </a>
             </li>
           </ul>
@@ -73,7 +73,7 @@
   </div>
 </div>
 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
-  <p class="col-md-4 mb-0 text-body-secondary" style="margin-left: 10px;">2024 - Desafio java/Angular</p>
+  <p class="col-md-4 mb-0 text-body-secondary" style="margin-left: 10px;">{{ year }} - {{ 'app.footer' | translate }}</p>
 
   <p class="nav col-md-4 justify-content-end"></p>
 </footer>

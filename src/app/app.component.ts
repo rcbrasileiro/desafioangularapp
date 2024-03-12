@@ -8,6 +8,7 @@ import { AppState } from './security/store/states';
 import { Store, select } from '@ngrx/store';
 import { selectToken } from './security/store/selectors/auth.selectors';
 import { setToken } from './security/store/states/auth.actions';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +17,15 @@ import { setToken } from './security/store/states/auth.actions';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Desafio Angular App';
+  title = this.translate.instant('common.title');
 
   userMe: UserMe;
 
   currentRoute: string;
 
-  constructor(private router: Router, private store: Store<AppState>, private authService: AuthService) { }
+  year: number = new Date().getFullYear();
+
+  constructor(private router: Router, private store: Store<AppState>, private authService: AuthService, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.route();

@@ -61,7 +61,9 @@
     "unexpectedError": "Ocorreu um erro inesperado!",
     "mandatoryField": "Campo obrigatório!",
     "invalidFormat": "Formato inválido!",
-    "actions": "Ações"
+    "actions": "Ações",
+    "home": "Home",
+    "title": "Desafio Angular App"
   },
   "home": {
     "welcomeMessage": "Bem-vindo ao Sistema de Gestão de Pessoas",
@@ -104,6 +106,16 @@
     "invalidCredentials": "Login ou senha inválidos",
     "loginError": "Ocorreu um erro ao realizar login",
     "authentication": "Autenticação"
+  },
+  "app": {
+    "footer": "Desafio java/Angular",
+    "angularQuest": "Desafio Java/Angular",
+    "user": "Usuário",
+    "car": "Carro",
+    "name": "Nome",
+    "lastLogin": "Último login",
+    "login": "Login",
+    "exit": "Sair"
   },
   "Email already exists":"O e-mail informado já foi cadastrado!",
   "Login already exists":"O login informado já foi cadastrado!",
