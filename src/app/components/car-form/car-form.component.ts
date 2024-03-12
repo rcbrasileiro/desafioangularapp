@@ -28,7 +28,10 @@ export class CarFormComponent implements OnInit {
   constructor(private carService: CarService, private notificationService: NotificationService, private router: Router, private route: ActivatedRoute, private translate: TranslateService) { }
 
   ngOnInit(): void {
-    this.findById();
+    if(!this.embbed) {
+      this.findById();
+    }
+
     this.buildCarForm();
     this.maxYear = this.carMaxYear();
   }
@@ -70,7 +73,6 @@ export class CarFormComponent implements OnInit {
   }
 
   findById(): void {
-    debugger;
     const carId = this.route.snapshot.paramMap.get('id');
 
     if (carId == null) {
@@ -97,7 +99,7 @@ export class CarFormComponent implements OnInit {
       case 400:
       case 422:
       case 409: {
-        this.notificationService.showWarning(error.error.message, this.translate.instant('common.warning'));
+        this.notificationService.showWarning(this.translate.instant(error.error.message), this.translate.instant('common.warning'));
         break;
       }
       case 404: {

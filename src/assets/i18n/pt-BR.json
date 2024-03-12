@@ -33,8 +33,8 @@
     "password": "Senha",
     "phone": "Telefone",
     "licensePlateAlradyAdded": "A placa já foi adicionada",
-    "added": "Carro adicionado!",
-    "updated": "Carro atualizado!",
+    "added": "Usuário adicionado!",
+    "updated": "Usuário atualizado!",
     "firstNameRequired": "Nome é obrigatório!",
     "lastNameRequired": "Sobrenome é obrigatório!",
     "emailRequired": "Email é obrigatório!",
@@ -104,5 +104,8 @@
     "invalidCredentials": "Login ou senha inválidos",
     "loginError": "Ocorreu um erro ao realizar login",
     "authentication": "Autenticação"
-  }
+  },
+  "Email already exists":"O e-mail informado já foi cadastrado!",
+  "Login already exists":"O login informado já foi cadastrado!",
+  "License plate already exists":"A placa informada já foi cadastrada!"
 }

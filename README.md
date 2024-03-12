@@ -8,14 +8,16 @@ Criar uma API REST para gestão de usuários e carros, implementando um controle
 
 Para mais detalhes do desafio, acesse o readme do backend [aqui](https://github.com/rcbrasileiro/desafiojava)
 
-# Ferramentas utilizadas (algumas são obrigatórias, outras desejáveis):
+Para acessar o frontend integrado com o backend, clique [aqui](https://rcbrasileiro.github.io/desafioangularapp)
 
-1. Angular 14
-2. Bootstrap e Bootstrap Icons
-3. ngx-mask para máscaras de datas, placas, telefones
-4. ngx-toastr para exibir notificações
-5. ngx-store para armazenar o token
+# Bibliotecas utilizadas:
 
+1. Angular 14.
+2. Bootstrap e Bootstrap Icons.
+3. ngx-mask para máscaras de datas, placas, telefones.
+4. ngx-toastr para exibir notificações.
+5. ngx-store para armazenar o token.
+6. ngx-translate para internacionalização.
 ## Executar o servidor:
 
 Antes de iniciar, execute `npm i` para atualizar as dependências do projeto.

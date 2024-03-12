@@ -119,7 +119,7 @@ export class UserFormComponent implements OnInit {
       case 400:
       case 422:
       case 409: {
-        this.notificationService.showWarning(error.error.message, this.translate.instant('common.warning'));
+        this.notificationService.showWarning(this.translate.instant(error.error.message), this.translate.instant('common.warning'));
         break;
       }
       case 404: {
