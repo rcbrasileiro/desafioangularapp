@@ -8,7 +8,7 @@ Criar uma API REST para gestão de usuários e carros, implementando um controle
 
 Para mais detalhes do desafio, acesse o readme do backend [aqui](https://github.com/rcbrasileiro/desafiojava)
 
-O frontend integrado com o backend encontra-se disponível no Github Pages, para acessar clique [aqui](https://rcbrasileiro.github.io/desafioangularapp)
+O frontend integrado com o backend encontra-se disponível na AWS, para acessar clique [aqui](http://54.146.211.140)
 
 # Bibliotecas utilizadas:
 
